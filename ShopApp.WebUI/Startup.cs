@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using ShopApp.Business.Abstract;
 using ShopApp.Business.Concrete;
 using ShopApp.DataAccess.Abstract;
+using ShopApp.DataAccess.Concrete.EfCore;
 using ShopApp.DataAccess.Concrete.Memory;
 
 namespace ShopApp.WebUI
@@ -32,6 +33,7 @@ namespace ShopApp.WebUI
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
+				SeedDatabase.Seed();
 			}
 			app.UseStaticFiles();
 
