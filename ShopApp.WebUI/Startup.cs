@@ -12,6 +12,7 @@ using ShopApp.Business.Concrete;
 using ShopApp.DataAccess.Abstract;
 using ShopApp.DataAccess.Concrete.EfCore;
 using ShopApp.DataAccess.Concrete.Memory;
+using ShopApp.WebUI.Middlewares;
 
 namespace ShopApp.WebUI
 {
@@ -36,7 +37,7 @@ namespace ShopApp.WebUI
 				SeedDatabase.Seed();
 			}
 			app.UseStaticFiles();
-
+			app.CustomStaticFiles();
 			app.UseRouting();
 
 			app.UseAuthorization();
@@ -47,6 +48,7 @@ namespace ShopApp.WebUI
 					name: "default",
 					pattern: "{controller=Home}/{action=Index}/{id?}");
 			});
+			
 		}
 	}
 }
